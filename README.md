@@ -1,7 +1,10 @@
 **SQL - Full Guide** 
 
+----------------------------------------------------
 **SELECT** -- Extract data from database.
 
-**Q**: Which SQL statement is used to select all records from a table named 'Customers'?
+**SELECT DISTINCE** - Extract the uniqe values.
 
-**A**: SELECT * FROM Customers;
+
+
+
