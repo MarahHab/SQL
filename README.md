@@ -74,3 +74,16 @@ WHERE condition;
 ```
 **Aggregate functions ignore null values (except for COUNT(*)).**
 
+11. LIKE - LIKE operator is used in a WHERE clause to search for a specified pattern within a column's text data.
+
+There are two wildcards often used in conjunction with the LIKE operator:
+
+A percent sign % - represents zero, one, or multiple characters
+A underscore sign _ - represents a single character
+
+Syntax
+```
+SELECT column1, column2, ...
+FROM table_name
+WHERE columnN LIKE pattern;
+```
