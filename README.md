@@ -31,3 +31,7 @@ The NOT operator is also used in combination with other operators to exclude dat
 - NOT EXISTS
 
 8. **INSERT INTO** -  statement is used to insert new records in a table
+
+9. **NULL** - A NULL value represents an unknown, missing, or inapplicable data in a database field.
+
+Note: A NULL value is different from zero (0) or an empty string (''). A field with a NULL value is one that has been left blank upon record creation.
