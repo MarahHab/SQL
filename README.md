@@ -109,3 +109,12 @@ SELECT column_name(s)
 FROM table_name
 WHERE column_name IN (value1, value2, ...);
 ```
+
+14. BETWEEN -  The BETWEEN operator is used in the WHERE clause to select values within a specified range.
+
+Syntax
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+```
