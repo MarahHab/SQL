@@ -87,3 +87,17 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE columnN LIKE pattern;
 ```
+12. SQL Wildcard Characters - Wildcard characters are used with the LIKE operator. The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+Wildcard Characters
+Symbol	Description
+%	Represents zero or more characters
+_	Represents a single character
+[]	Represents any single character within the brackets *
+^	Represents any character not in the brackets *
+-	Represents any single character within the specified range *
+{}	Represents any escaped character **
+
+* Not supported in PostgreSQL and MySQL databases.
+
+** Supported only in Oracle databases.
+
