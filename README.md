@@ -24,9 +24,53 @@ Delete ALL records (Keeps table structure intact):SQLDELETE FROM table_name;
 7. DROP TABLECompletely deletes a table and all its data from the database permanently.
 SQLDROP TABLE table_name;
 8. SELECT TOP -  limit the number of records to return.
-9. LIMIT -  Not all database systems support the SELECT TOP clause. MySQL supports the LIMIT clause to select a limited number of records
-
+9. LIMIT -  Not all database systems support the SELECT TOP clause. MySQL supports the LIMIT clause to select a limited number of records   
+```
 SELECT column_name(s)
 FROM table_name
 WHERE condition
 LIMIT number;
+```
+10. SQL Aggregate Functions
+- MIN() - returns the smallest value of a column 
+MIN() Syntax:
+```
+SELECT MIN(column_name)
+FROM table_name
+WHERE condition;
+```
+- MAX() - returns the largest value of a column
+MAX() Syntax:
+```
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+```
+- COUNT() - returns the number of rows in a set
+The behavior of COUNT() depends on the argument used within the parentheses:
+
+COUNT(*) - Counts the total number of rows in a table (including NULL values).
+COUNT(columnname) - Counts all non-null values in the column.
+COUNT(DISTINCT columnname) - Counts only the unique, non-null values in the column.
+COUNT() Syntax:
+```
+SELECT COUNT([DISTINCT] column_name | *)
+FROM table_name
+WHERE condition;
+```
+- SUM() - returns the sum of a numerical column
+SUM() Syntax
+```
+SELECT SUM(column_name)
+FROM table_name
+WHERE condition;
+```
+- AVG() - returns the average value of a numerical column
+AVG() Syntax
+```
+SELECT AVG(column_name)
+FROM table_name
+WHERE condition;
+```
+**Aggregate functions ignore null values (except for COUNT(*)).**
+
