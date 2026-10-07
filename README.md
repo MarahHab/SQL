@@ -101,3 +101,11 @@ _	Represents a single character
 
 ** Supported only in Oracle databases.
 
+13. IN - IN operator is used in the WHERE clause to check if a specified column's value matches any value within a provided list.
+
+Syntax
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+```
