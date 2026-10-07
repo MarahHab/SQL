@@ -29,3 +29,5 @@ The NOT operator is also used in combination with other operators to exclude dat
 - NOT IN
 - IS NOT NULL
 - NOT EXISTS
+
+8. **INSERT INTO** -  statement is used to insert new records in a table
