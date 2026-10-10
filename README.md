@@ -137,8 +137,14 @@ FROM table_name AS alias_name;
 16. JOIN  - used to combine rows from two or more tables, based on a related column between them.
 Here are the different types of JOINs in SQL:
 - (INNER) JOIN: Returns only rows that have matching values in both tables
+
+![INNER -JOIN](image.png)
+
+JOIN and INNER JOIN will return the same result.
+INNER is the default join type for JOIN, so when you write JOIN the parser actually writes INNER JOIN.
+
+
 - LEFT (OUTER) JOIN: Returns all rows from the left table, and only the matched rows from the right table
 - RIGHT (OUTER) JOIN: Returns all rows from the right table, and only the matched rows from the left table
 - FULL (OUTER) JOIN: Returns all rows when there is a match in either the left or right table
 
-![INNER -JOIN](image.png)
