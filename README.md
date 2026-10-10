@@ -184,3 +184,83 @@ FULL JOIN table2
 ON table1.column_name = table2.column_name
 WHERE condition;
 ```
+
+17.  Self JOIN - A self join is a regular join, but the table is joined with itself.
+
+Self Join Syntax:
+```
+SELECT column_name(s)
+FROM table1 T1, table1 T2
+WHERE condition;
+```
+
+**Remember this trick
+
+JOIN: Combine two different tables.
+
+SELF JOIN: Combine a table with itself to compare related rows.
+
+18. UNION - combines the results of two SELECT queries into one list.
+
+UNION Syntax:
+```
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+```
+
+Imagine you have two tables:
+
+Table 1: Customers from Haifa
+
+name
+------
+Marah
+Sara
+
+Table 2: Customers from Nazareth
+
+name
+------
+Lina
+Ahmad
+
+he SQL query
+```
+SELECT name
+FROM haifa_customers
+
+UNION
+
+SELECT name
+FROM nazareth_customers;
+```
+
+The result
+
+name
+------
+Marah
+Sara
+Lina
+Ahmad
+
+**What is the difference between UNION and UNION ALL?
+UNION - Removes duplicate rows.
+UNION ALL - Keeps duplicates.
+
+The 3 rules of UNION in SQL:
+
+- Same number of columns: Both queries must return the same number of columns.
+
+- Similar data types: The columns must contain compatible types, like text with text or numbers with numbers.
+
+- Same order: The columns must be in the same order in both queries.
+
+Example:
+```
+SELECT name, age FROM students
+UNION
+SELECT name, age FROM employees;
+```
+✅ Both queries return name first and age second, so the requirements are satisfied.
