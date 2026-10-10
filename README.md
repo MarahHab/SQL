@@ -140,11 +140,47 @@ Here are the different types of JOINs in SQL:
 
 ![INNER -JOIN](image.png)
 
+INNER JOIN Syntax:
+```
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+```
 JOIN and INNER JOIN will return the same result.
 INNER is the default join type for JOIN, so when you write JOIN the parser actually writes INNER JOIN.
 
 
 - LEFT (OUTER) JOIN: Returns all rows from the left table, and only the matched rows from the right table
+![LEFT-JOIN](image-1.png)
+
+LEFT JOIN Syntax:
+```
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+```
 - RIGHT (OUTER) JOIN: Returns all rows from the right table, and only the matched rows from the left table
+
+![RIGHT-JOIN](image-2.png)
+
+RIGHT JOIN Syntax:
+```
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+```
 - FULL (OUTER) JOIN: Returns all rows when there is a match in either the left or right table
 
+![FULL-JOIN](image-3.png)
+
+FULL JOIN Syntax:
+```
+SELECT column_name(s)
+FROM table1
+FULL JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;
+```
