@@ -17,10 +17,10 @@ WHERE city LIKE 'l_nd__';
 SELECT * FROM Customers
 WHERE CustomerName LIKE 'La%';
 
---5. Return all customers that starts with 'La':
+--5. Return all customers that starts with 'Ln':
 
 SELECT * FROM Customers
-WHERE CustomerName LIKE 'La%';
+WHERE CustomerName LIKE 'Ln%';
 
 -- 6. Return all customers that ends with 'a':
 

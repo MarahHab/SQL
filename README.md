@@ -1,5 +1,11 @@
-SQL Cheat Sheet & TutorialA quick reference guide covering essential SQL commands, operators, and data manipulation syntax.1. Data Retrieval (SELECT)SELECTExtracts data from a database.SQLSELECT column1, column2 FROM table_name;
-SELECT DISTINCTExtracts only unique values by eliminating duplicate records.SQLSELECT DISTINCT column1 FROM table_name;
+**SQL Cheat Sheet & TutorialA quick reference guide covering essential SQL commands, operators, and data manipulation syntax.**
+-----------------------------------------------------------------------
+
+1. Data Retrieval (SELECT)SELECTExtracts data from a database.SQLSELECT column1, column2 FROM table_name;
+SELECT DISTINCT Extracts only unique values by eliminating duplicate records.
+SELECT DISTINCT column1 
+FROM table_name;
+
 2. Filtering Data (WHERE)Filters records to fulfill a specific condition.SQLSELECT * FROM table_name WHERE condition;
 Comparison OperatorsThe following operators can be used in the WHERE clause:OperatorDescription=Equal>Greater than<Less than>=Greater than or equal<=Less than or equal<> or !=Not equalBETWEENBetween a certain rangeLIKESearch for a pattern (uses % and _ wildcards)INSpecify multiple possible values for a column3. Logical Operators (AND, OR, NOT)Combine multiple conditions inside a WHERE clause:AND: Displays a record if ALL conditions are TRUE.SQLSELECT * FROM Customers WHERE Country = 'Germany' AND City = 'Berlin';
 OR: Displays a record if ANY condition is TRUE.SQLSELECT * FROM Customers WHERE City = 'Berlin' OR City = 'München';
@@ -12,7 +18,8 @@ WHERE column_name IS NULL;
 IS NOT NULL Syntax:SQLSELECT column_names
 FROM table_name
 WHERE column_name IS NOT NULL;
-6. Data Manipulation (DML)INSERT INTOUsed to insert new records into a table.Syntax 1: Specify both column names and values (Recommended)SQLINSERT INTO table_name (column1, column2, column3, ...)
+6. Data Manipulation (DML)INSERT INTO - Used to insert new records into a table.Syntax 1: Specify both column names and values (Recommended)
+SQLINSERT INTO table_name (column1, column2, column3, ...)
 VALUES (value1, value2, value3, ...);
 Syntax 2: Omit column names (When inserting values for ALL columns)The order of the values must match the exact column order in the table.SQLINSERT INTO table_name
 VALUES (value1, value2, value3, ...);
@@ -264,3 +271,72 @@ UNION
 SELECT name, age FROM employees;
 ```
 ✅ Both queries return name first and age second, so the requirements are satisfied.
+
+19. GROUP BY - means put rows with the same value together, then calculate something for each group.
+
+Imagine you have this table:
+
+customer     |    country
+----------------------------
+Marah        |   Israel
+Sara         |   Israel
+John         |   USA
+Lina         |   USA
+Ahmad        |   Israel
+
+You want to know how many customers are in each country.
+```
+SELECT country, COUNT(*)
+FROM customers
+GROUP BY country;
+```
+Result:
+
+country | COUNT(*)
+Israel  |  3
+USA     |  2
+
+Here's what happens:
+
+GROUP BY country → Groups customers by country.
+
+COUNT(*) → Counts the customers in each group.
+
+You can also use other calculations:
+
+SUM() → Adds values.
+
+AVG() → Calculates the average.
+
+MAX() → Finds the highest value.
+
+MIN() → Finds the lowest value.
+
+GROUP BY Syntax:
+```
+SELECT column1, aggregate_function(column2), column3, ...
+FROM table_name
+WHERE condition
+GROUP BY column1, column3
+ORDER BY column_name;
+```
+
+The GROUP BY statement is almost always used in conjunction with aggregate functions, like COUNT(), MAX(), MIN(), SUM(), AVG(), to perform calculations on each group.
+
+20. HAVING - is used to filter groups after using GROUP BY.
+
+Remember the difference
+
+- WHERE → Filters individual rows before grouping.
+
+- HAVING → Filters groups after grouping.
+
+HAVING Syntax:
+```
+SELECT column1, aggregate_function(column2), column3, ...
+FROM table_name
+WHERE condition
+GROUP BY column1, column3
+HAVING condition -- The condition on grouped data
+ORDER BY column_name;
+```
