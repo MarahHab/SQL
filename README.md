@@ -340,3 +340,130 @@ GROUP BY column1, column3
 HAVING condition -- The condition on grouped data
 ORDER BY column_name;
 ```
+
+21. EXISTS -   checks whether a query returns at least one row.
+
+- If a matching row exists → EXISTS is TRUE.
+
+- If no matching row exists → EXISTS is FALSE.
+
+The EXISTS operator evaluates to TRUE if the subquery returns at least one row, and FALSE otherwise.
+
+EXISTS Syntax:
+```
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS (subquery);
+```
+
+22. ANY-  means compare a value with the values returned by another query. If the comparison is TRUE for at least one value, the condition is TRUE.
+
+ANY Syntax:
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ANY (subquery);
+```
+
+23. ALL - means the condition must be true for every value returned by the query.
+Exaple:
+![ALL-Example](image-4.png)
+
+ALL Syntax:
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ALL (subquery);
+```
+
+24. SELECT INTO - is used to copy data from an existing table into a new table.
+
+** The SELECT INTO statement is useful for creating backups or for creating a temporary table for analysis.
+
+SELECT INTO Syntax:
+Copy entire table into a new table:
+```
+SELECT * INTO newtable [IN external_db]
+FROM sourcetable
+WHERE condition;
+```
+
+Copy only some columns into a new table:
+```
+SELECT column1, column2, column3, ...
+INTO newtable [IN external_db]
+FROM sourcetable
+WHERE condition;
+```
+
+25. INSERT INTO SELECT -To copy data from one table and insert it into another table.
+The INSERT INTO SELECT statement requires that the data types in source and target tables match.
+
+INSERT INTO SELECT Syntax:
+Copy all columns from one table to another table:
+```
+INSERT INTO target_table
+SELECT * FROM source_table
+WHERE condition;
+```
+
+Copy only some columns from one table to another table:
+```
+INSERT INTO target_table (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM source_table
+WHERE condition;
+``
+
+Example:
+![INSERT INTO Example](image-5.png)
+
+26. CASE - The SQL CASE expression works like IF / ELSE in programming.
+It checks a condition and returns a result depending on whether the condition is true.
+
+CASE Syntax:
+```
+CASE
+  WHEN condition1 THEN result1
+  WHEN condition2 THEN result2
+  WHEN conditionN THEN resultN
+  ELSE default_result
+END;
+```
+
+Example:
+![CASE Example](image-6.png)
+4
+--------------------------------------------------------------------------
+
+A Stored Procedure in SQL is a saved group of SQL statements that you can run whenever you need them.
+
+Think of it like a recipe: you write the instructions once, save them, and reuse them later.
+
+Example
+
+Imagine you often want to see all customers from Israel.
+
+You can save this query as a stored procedure:
+```
+CREATE PROCEDURE GetCustomers
+AS
+BEGIN
+    SELECT *
+    FROM customers
+    WHERE country = 'Israel';
+END;
+```
+Now you can run it whenever you want:
+```
+EXEC GetCustomers;
+```
+Instead of writing the whole query every time, you just call the procedure!
+
+Remember:
+
+- CREATE PROCEDURE → Creates and saves the procedure.
+
+- SELECT → Defines what data to retrieve.
+
+- EXEC → Runs the saved procedure in SQL Server.
