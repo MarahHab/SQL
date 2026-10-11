@@ -358,6 +358,7 @@ GROUP BY country;
 Result:
 
 country | COUNT(*)
+-------------------
 Israel  |  3
 USA     |  2
 
